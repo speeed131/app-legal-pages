@@ -1,0 +1,27 @@
+{
+  "slug": "sukitan-eiken3",
+  "displayName": "英検3級 英単語 スキ単",
+  "supportEmail": "toeic.grammar.app@gmail.com",
+  "effectiveDate": "2026年7月28日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/sukitan-eiken3/",
+  "documents": [
+    "privacy-policy",
+    "terms",
+    "tokushoho"
+  ],
+  "requiredPhrases": [
+    "公益財団法人 日本英語検定協会とは関係ありません",
+    "toeic.grammar.app@gmail.com"
+  ],
+  "forbiddenPhrases": [
+    "Remember",
+    "TOEIC",
+    "TBD",
+    "TODO",
+    "準備中",
+    "2,980",
+    "¥980",
+    "￥980",
+    "4,800"
+  ]
+}

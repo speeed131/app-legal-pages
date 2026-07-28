@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://speeed131.github.io/app-legal-pages/sitemap.xml

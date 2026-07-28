@@ -1,0 +1,13 @@
+{
+  "name": "app-legal-pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
