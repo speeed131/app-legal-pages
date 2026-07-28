@@ -1,4 +1,4 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { cp, mkdir, readdir, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -24,6 +24,20 @@ await mkdir(output, { recursive: true });
 for (const entry of entries) {
   await cp(path.join(root, entry), path.join(output, entry), {
     recursive: true,
+  });
+}
+
+const appDirectories = await readdir(path.join(output, "apps"), {
+  withFileTypes: true,
+});
+
+for (const appDirectory of appDirectories) {
+  if (!appDirectory.isDirectory()) {
+    continue;
+  }
+
+  await rm(path.join(output, "apps", appDirectory.name, "app.json"), {
+    force: true,
   });
 }
 
