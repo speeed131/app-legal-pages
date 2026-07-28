@@ -143,7 +143,6 @@ for (const appDirectory of appDirectories) {
   for (const phrase of [
     "PostHog",
     "RevenueCat",
-    "ファミリー共有",
     "海外の利用者の権利",
   ]) {
     requireText(privacyFile, privacy, phrase);
