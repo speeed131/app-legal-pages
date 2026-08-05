@@ -112,6 +112,18 @@ for (const appDirectory of appDirectories) {
     );
   }
 
+  // 文書ごとの必須語はアプリで異なる（利用する外部SDK、商品種別、価格）。
+  // ここへ特定アプリの値を直書きすると別アプリの追加時に必ず落ちるため、manifest から読む。
+  const documentRequiredPhrases = manifest.documentRequiredPhrases ?? {};
+  const unknownDocuments = Object.keys(documentRequiredPhrases).filter(
+    (document) => !manifest.documents.includes(document),
+  );
+  for (const document of unknownDocuments) {
+    failures.push(
+      `${path.relative(root, manifestPath)}: documentRequiredPhrases has unknown document "${document}"`,
+    );
+  }
+
   for (const document of manifest.documents) {
     const file = path.join(appRoot, document, "index.html");
     const source = await readFile(file, "utf8");
@@ -120,6 +132,7 @@ for (const appDirectory of appDirectories) {
       manifest.supportEmail,
       manifest.effectiveDate,
       ...manifest.requiredPhrases,
+      ...(documentRequiredPhrases[document] ?? []),
     ]) {
       requireText(file, source, phrase);
     }
@@ -136,34 +149,6 @@ for (const appDirectory of appDirectories) {
       `${manifest.baseUrl}${document}/`,
       "canonical URL",
     );
-  }
-
-  const privacyFile = path.join(appRoot, "privacy-policy", "index.html");
-  const privacy = await readFile(privacyFile, "utf8");
-  for (const phrase of [
-    "PostHog",
-    "RevenueCat",
-    "海外の利用者の権利",
-  ]) {
-    requireText(privacyFile, privacy, phrase);
-  }
-
-  const termsFile = path.join(appRoot, "terms", "index.html");
-  const terms = await readFile(termsFile, "utf8");
-  for (const phrase of ["無料トライアル", "ファミリー共有", "月額プラン"]) {
-    requireText(termsFile, terms, phrase);
-  }
-
-  const commerceFile = path.join(appRoot, "tokushoho", "index.html");
-  const commerce = await readFile(commerceFile, "utf8");
-  for (const phrase of [
-    "600円（税込）/月",
-    "1,800円（税込）",
-    "無料トライアル",
-    "ファミリー共有",
-    "Daiki Hirose",
-  ]) {
-    requireText(commerceFile, commerce, phrase);
   }
 }
 

@@ -13,6 +13,25 @@
     "公益財団法人 日本英語検定協会とは関係ありません",
     "toeic.grammar.app@gmail.com"
   ],
+  "documentRequiredPhrases": {
+    "privacy-policy": [
+      "PostHog",
+      "RevenueCat",
+      "海外の利用者の権利"
+    ],
+    "terms": [
+      "無料トライアル",
+      "ファミリー共有",
+      "月額プラン"
+    ],
+    "tokushoho": [
+      "600円（税込）/月",
+      "1,800円（税込）",
+      "無料トライアル",
+      "ファミリー共有",
+      "Daiki Hirose"
+    ]
+  },
   "forbiddenPhrases": [
     "Remember",
     "TOEIC",
