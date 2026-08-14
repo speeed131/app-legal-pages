@@ -32,15 +32,12 @@
     ]
   },
   "forbiddenPhrases": [
-    "Remember",
-    "TOEIC",
     "TBD",
     "TODO",
     "準備中",
-    "2,980",
-    "¥980",
-    "￥980",
-    "4,800",
     "PostHog"
+  ],
+  "forbiddenPhraseGroups": [
+    "cross-app"
   ]
 }

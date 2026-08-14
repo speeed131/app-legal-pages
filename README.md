@@ -5,7 +5,9 @@
 - 公開URL: <https://speeed131.github.io/app-legal-pages/>
 - ホスティング: GitHub Pages
 - 解析、Cookie、広告、外部フォント、クライアントJavaScript: なし
-- 初号機: 「英検3級 英単語 スキ単」
+
+このリポジトリは GitHub Pages の要件により public です。**公開したくない情報を置かないでください。**
+アプリ本体のリポジトリは private ですが、ここは誰でも読めます。
 
 ## ディレクトリ
 
@@ -58,6 +60,29 @@ https://speeed131.github.io/app-legal-pages/apps/<app-slug>/tokushoho/
 - 問い合わせ先、事業者情報、保存・削除方法
 
 未確定値を `TBD` や仮の数値で公開せず、確定まで文書をデプロイ対象へ追加しないでください。
+
+## 禁止語の管理
+
+`app.json` の `forbiddenPhrases` は、テンプレート流用時の混入を検出するためのものです。
+このうち**他アプリ名・価格など公開したくない語**は、リポジトリに置かず外部へ退避します。
+禁止語リストは裏返すとプロダクト一覧と価格表になるためです。
+
+- `app.json` の `forbiddenPhrases`: 公開して差し支えない語だけ（`TBD`、`TODO`、`準備中` 等）
+- `app.json` の `forbiddenPhraseGroups`: 外部から読む群の名前（現在は `cross-app` のみ）
+- 実際の値: `config/forbidden-cross-app.json`（**gitignore 済み**）。形式は
+  `{ "<app-slug>": ["語", ...] }`
+
+CI では GitHub Secrets `LEGAL_FORBIDDEN_CROSS_APP` に同じ JSON を入れ、環境変数として渡します。
+環境変数があればそちらが優先され、無ければローカルファイルを読みます。
+
+**どちらも無い場合、CI では失敗します**（検査が黙って弱くなるのを防ぐため）。
+ローカルでは警告のみでスキップします。
+
+検出時のエラーメッセージは `cross-app[2]` のように添字だけを出し、値は伏せます。
+Actions のログも公開されるためです。
+
+新しい端末で作業を始めるときは、GitHub Secrets の内容を
+`config/forbidden-cross-app.json` として保存してください。
 
 ## ローカル検証
 

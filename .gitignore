@@ -1,2 +1,5 @@
 _site/
 .DS_Store
+
+# 他アプリ名・価格など公開したくない検証語。GitHub Secrets と同じ内容をローカルに置く。
+config/forbidden-cross-app.json

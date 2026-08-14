@@ -4,13 +4,20 @@
   "supportEmail": "toeic.grammar.app@gmail.com",
   "effectiveDate": "2026年8月5日",
   "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/driving-license-drill/",
-  "documents": ["privacy-policy", "terms", "tokushoho"],
+  "documents": [
+    "privacy-policy",
+    "terms",
+    "tokushoho"
+  ],
   "requiredPhrases": [
     "警察庁、各都道府県公安委員会、自動車教習所が提供・承認するものではありません",
     "toeic.grammar.app@gmail.com"
   ],
   "documentRequiredPhrases": {
-    "privacy-policy": ["RevenueCat", "海外の利用者の権利"],
+    "privacy-policy": [
+      "RevenueCat",
+      "海外の利用者の権利"
+    ],
     "terms": [
       "無料トライアル",
       "ファミリー共有",
@@ -28,19 +35,15 @@
     ]
   },
   "forbiddenPhrases": [
-    "ITパスポート",
-    "IPA",
-    "英検",
-    "TOEIC",
     "PostHog",
     "TBD",
     "TODO",
     "準備中",
     "公認",
     "指定教習所",
-    "合格保証",
-    "月額",
-    "600円",
-    "1,800円"
+    "合格保証"
+  ],
+  "forbiddenPhraseGroups": [
+    "cross-app"
   ]
 }

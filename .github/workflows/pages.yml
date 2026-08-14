@@ -26,8 +26,14 @@ jobs:
         with:
           node-version: 22
 
+      # 他アプリ名・価格など公開したくない検証語は Secrets から渡す。
+      # 本リポジトリは Pages のため public で、平文で置くとプロダクト一覧と価格表になる。
+      # 未設定なら validate が失敗する (CI では検査を黙ってスキップさせない)。
       - name: Validate legal pages
         run: npm test
+        env:
+          CI: "true"
+          LEGAL_FORBIDDEN_CROSS_APP: ${{ secrets.LEGAL_FORBIDDEN_CROSS_APP }}
 
       - name: Build static site
         run: npm run build

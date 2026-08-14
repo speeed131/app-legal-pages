@@ -39,6 +39,51 @@ function requireText(file, source, text, reason = "required text") {
   }
 }
 
+// 他アプリ名・価格など、混入検出には必要だが公開リポジトリへ置きたくない語の読み込み。
+//
+// 本リポジトリは GitHub Pages のため public。app.json に平文で並べると、禁止語リストが
+// そのままプロダクト一覧と価格表になる。ハッシュ化も検討したが「600円」「英検」のように
+// 2-5文字と短く総当たりが容易なため秘匿にならない。よって値自体をリポジトリから外す。
+//
+// 優先順: 環境変数 (CI は GitHub Secrets から注入) → ローカルの untracked ファイル。
+// 形式はどちらも { "<app-slug>": ["語", ...] }。
+const FORBIDDEN_GROUP_ENV = {
+  "cross-app": "LEGAL_FORBIDDEN_CROSS_APP",
+};
+
+async function loadForbiddenGroup(group) {
+  const raw = process.env[FORBIDDEN_GROUP_ENV[group] ?? ""];
+  if (raw?.trim()) {
+    try {
+      return { source: "env", data: JSON.parse(raw) };
+    } catch (error) {
+      failures.push(
+        `${FORBIDDEN_GROUP_ENV[group]}: JSON として解釈できない (${error.message})`,
+      );
+      return { source: "env", data: {} };
+    }
+  }
+  const file = path.join(root, "config", `forbidden-${group}.json`);
+  try {
+    return { source: "file", data: JSON.parse(await readFile(file, "utf8")) };
+  } catch {
+    return { source: null, data: {} };
+  }
+}
+
+const forbiddenGroups = new Map();
+for (const group of Object.keys(FORBIDDEN_GROUP_ENV)) {
+  const { source, data } = await loadForbiddenGroup(group);
+  forbiddenGroups.set(group, data);
+  if (source) continue;
+  // 黙って検査が弱くなるのを防ぐ。CI では失敗させ、ローカルでは警告に留める。
+  const message =
+    `禁止語グループ "${group}" を読み込めない。` +
+    `${FORBIDDEN_GROUP_ENV[group]} を設定するか config/forbidden-${group}.json を置く`;
+  if (process.env.CI) failures.push(message);
+  else console.warn(`警告: ${message} (この群の検査をスキップした)`);
+}
+
 const allFiles = await walk(root);
 const htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
 
@@ -136,12 +181,31 @@ for (const appDirectory of appDirectories) {
     ]) {
       requireText(file, source, phrase);
     }
+    // manifest 直書きの語 + 外部退避した群の語。後者は値をログへ出さない
+    // (CI ログも公開されるため、失敗メッセージから復元できてしまう)。
     for (const phrase of manifest.forbiddenPhrases) {
       if (source.includes(phrase)) {
         failures.push(
           `${path.relative(root, file)}: forbidden phrase found: ${phrase}`,
         );
       }
+    }
+    for (const group of manifest.forbiddenPhraseGroups ?? []) {
+      if (!forbiddenGroups.has(group)) {
+        failures.push(
+          `${path.relative(root, manifestPath)}: unknown forbiddenPhraseGroups entry "${group}"`,
+        );
+        continue;
+      }
+      const phrases = forbiddenGroups.get(group)[manifest.slug] ?? [];
+      phrases.forEach((phrase, index) => {
+        if (source.includes(phrase)) {
+          failures.push(
+            `${path.relative(root, file)}: forbidden phrase found: ` +
+              `${group}[${index}] (値は伏せる。config/forbidden-${group}.json を参照)`,
+          );
+        }
+      });
     }
     requireText(
       file,
