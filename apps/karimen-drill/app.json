@@ -1,0 +1,50 @@
+{
+  "slug": "karimen-drill",
+  "displayName": "効果測定 仮免 学科試験問題集｜教習所",
+  "supportEmail": "toeic.grammar.app@gmail.com",
+  "effectiveDate": "2026年8月26日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/karimen-drill/",
+  "documents": ["privacy-policy", "terms", "tokushoho"],
+  "requiredPhrases": [
+    "警察庁、各都道府県公安委員会、自動車教習所が提供・承認するものではありません",
+    "toeic.grammar.app@gmail.com"
+  ],
+  "documentRequiredPhrases": {
+    "privacy-policy": ["RevenueCat", "海外の利用者の権利", "クラウド同期"],
+    "terms": [
+      "無料トライアル",
+      "ファミリー共有",
+      "週プラン",
+      "買い切りプラン",
+      "第三者受益者",
+      "合格を保証するものではありません",
+      "24時間前までに解約しない限り"
+    ],
+    "tokushoho": [
+      "500円（税込）/週",
+      "1,500円（税込）",
+      "無料トライアル",
+      "ファミリー共有",
+      "Daiki Hirose"
+    ]
+  },
+  "forbiddenPhrases": [
+    "模試",
+    "模擬試験",
+    "合格ライン",
+    "推定得点",
+    "AT",
+    "MT",
+    "免許種別",
+    "対策中の試験区分",
+    "仮免本免切替",
+    "本免",
+    "公認",
+    "指定教習所",
+    "合格保証",
+    "TBD",
+    "TODO",
+    "準備中"
+  ],
+  "forbiddenPhraseGroups": ["cross-app"]
+}
