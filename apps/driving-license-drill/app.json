@@ -1,23 +1,16 @@
 {
   "slug": "driving-license-drill",
-  "displayName": "運転免許 学科試験ドリル",
+  "displayName": "運転免許 学科試験問題集｜本免・普通自動車",
   "supportEmail": "toeic.grammar.app@gmail.com",
   "effectiveDate": "2026年8月5日",
   "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/driving-license-drill/",
-  "documents": [
-    "privacy-policy",
-    "terms",
-    "tokushoho"
-  ],
+  "documents": ["privacy-policy", "terms", "tokushoho"],
   "requiredPhrases": [
     "警察庁、各都道府県公安委員会、自動車教習所が提供・承認するものではありません",
     "toeic.grammar.app@gmail.com"
   ],
   "documentRequiredPhrases": {
-    "privacy-policy": [
-      "RevenueCat",
-      "海外の利用者の権利"
-    ],
+    "privacy-policy": ["RevenueCat", "海外の利用者の権利"],
     "terms": [
       "無料トライアル",
       "ファミリー共有",
@@ -35,6 +28,16 @@
     ]
   },
   "forbiddenPhrases": [
+    "模試",
+    "模擬試験",
+    "合格ライン",
+    "推定得点",
+    "AT",
+    "MT",
+    "免許種別",
+    "対策中の試験区分",
+    "仮免本免切替",
+    "仮免",
     "PostHog",
     "TBD",
     "TODO",
@@ -43,7 +46,5 @@
     "指定教習所",
     "合格保証"
   ],
-  "forbiddenPhraseGroups": [
-    "cross-app"
-  ]
+  "forbiddenPhraseGroups": ["cross-app"]
 }
