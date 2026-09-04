@@ -1,0 +1,36 @@
+{
+  "slug": "nap-pile",
+  "displayName": "おひるねのやま",
+  "supportEmail": "dhirose.business@gmail.com",
+  "effectiveDate": "2026年9月4日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/nap-pile/",
+  "documents": ["privacy-policy", "terms", "tokushoho", "en/privacy-policy", "en/terms"],
+  "localized": {
+    "en": {
+      "displayName": "Nap Pile",
+      "effectiveDate": "September 4, 2026"
+    }
+  },
+  "requiredPhrases": ["dhirose.business@gmail.com", "Daiki Hirose"],
+  "documentRequiredPhrases": {
+    "privacy-policy": ["RevenueCat", "Google", "Cloudflare", "海外の利用者の権利", "プライバシー設定", "13歳未満", "ローカル通知"],
+    "terms": ["おひるねパス", "かけらパック", "24時間前", "第三者受益者", "東京地方裁判所", "消費者保護", "換金"],
+    "tokushoho": ["600円（税込）/月", "2,900円（税込）/年", "300円（税込）", "900円（税込）", "1,800円（税込）", "消耗型", "遅滞なく電子メールにて開示"],
+    "en/privacy-policy": ["RevenueCat", "Google", "Cloudflare", "Privacy settings", "under 13", "local notification"],
+    "en/terms": ["Nap Pass", "Fragment Pack", "24 hours", "third-party beneficiaries", "Tokyo District Court", "consumer-protection"]
+  },
+  "forbiddenPhrases": [
+    "TBD",
+    "TODO",
+    "準備中",
+    "{{",
+    "個人開発",
+    "おひるねパイル",
+    "スイカゲーム",
+    "Suika",
+    "無料トライアルあり",
+    "週プラン",
+    "買い切りプラン"
+  ],
+  "forbiddenPhraseGroups": ["cross-app"]
+}

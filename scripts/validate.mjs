@@ -87,10 +87,17 @@ for (const group of Object.keys(FORBIDDEN_GROUP_ENV)) {
 const allFiles = await walk(root);
 const htmlFiles = allFiles.filter((file) => file.endsWith(".html"));
 
+// 言語はディレクトリで決める: `.../en/...` 配下だけ英語、それ以外は日本語。
+// 2026-09-04 nap-pile（全世界配信・ASC 主言語 en-US）で英語版を追加したため。
+function languageOf(file) {
+  const segments = path.relative(root, file).split(path.sep);
+  return segments.includes("en") ? "en" : "ja";
+}
+
 for (const file of htmlFiles) {
   const source = await readFile(file, "utf8");
   requireText(file, source.toLowerCase(), "<!doctype html>", "doctype");
-  requireText(file, source, '<html lang="ja">', "language");
+  requireText(file, source, `<html lang="${languageOf(file)}">`, "language");
   requireText(file, source, '<meta charset="UTF-8" />', "charset");
   requireText(file, source, 'name="viewport"', "viewport");
   requireText(file, source, "<title>", "title");
@@ -172,10 +179,13 @@ for (const appDirectory of appDirectories) {
   for (const document of manifest.documents) {
     const file = path.join(appRoot, document, "index.html");
     const source = await readFile(file, "utf8");
+    // 英語版は表示名・制定日の表記が違う。manifest.localized[lang] で上書きできる
+    // （無ければ日本語の値をそのまま要求する）。
+    const localized = manifest.localized?.[languageOf(file)] ?? {};
     for (const phrase of [
-      manifest.displayName,
+      localized.displayName ?? manifest.displayName,
       manifest.supportEmail,
-      manifest.effectiveDate,
+      localized.effectiveDate ?? manifest.effectiveDate,
       ...manifest.requiredPhrases,
       ...(documentRequiredPhrases[document] ?? []),
     ]) {
