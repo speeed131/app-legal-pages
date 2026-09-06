@@ -1,0 +1,53 @@
+{
+  "slug": "genai-passport-drill",
+  "displayName": "生成AIパスポート 合格ドリル｜500問・全選択肢解説",
+  "supportEmail": "toeic.grammar.app@gmail.com",
+  "effectiveDate": "2026年9月6日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/genai-passport-drill/",
+  "documents": ["privacy-policy", "terms", "tokushoho"],
+  "requiredPhrases": [
+    "一般社団法人生成AI活用普及協会（GUGA）が提供・承認するものではありません",
+    "toeic.grammar.app@gmail.com"
+  ],
+  "documentRequiredPhrases": {
+    "privacy-policy": ["RevenueCat", "海外の利用者の権利", "端末内"],
+    "terms": [
+      "無料トライアル",
+      "ファミリー共有",
+      "週プラン",
+      "買い切りプラン",
+      "第三者受益者",
+      "合格を保証するものではありません",
+      "本試験の問題ではありません"
+    ],
+    "tokushoho": [
+      "500円（税込）/週",
+      "1,500円（税込）",
+      "無料トライアル",
+      "ファミリー共有",
+      "Daiki Hirose"
+    ]
+  },
+  "forbiddenPhrases": [
+    "過去問",
+    "公認",
+    "監修",
+    "的中",
+    "合格保証",
+    "模試",
+    "模擬試験",
+    "オフライン",
+    "PostHog",
+    "TBD",
+    "TODO",
+    "準備中",
+    "運転免許",
+    "仮免",
+    "本免",
+    "教習所",
+    "警察庁",
+    "公安委員会",
+    "学科試験"
+  ],
+  "forbiddenPhraseGroups": ["cross-app"]
+}
