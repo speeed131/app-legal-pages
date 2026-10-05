@@ -2,20 +2,20 @@
   "slug": "nap-pile",
   "displayName": "すやぽん",
   "supportEmail": "dhirose.business@gmail.com",
-  "effectiveDate": "2026年9月4日",
+  "effectiveDate": "公開日に差し替え",
   "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/nap-pile/",
   "documents": ["privacy-policy", "terms", "tokushoho", "en/privacy-policy", "en/terms"],
   "localized": {
     "en": {
       "displayName": "Nap Pile",
-      "effectiveDate": "September 4, 2026"
+      "effectiveDate": "Replace on publication"
     }
   },
   "requiredPhrases": ["dhirose.business@gmail.com", "Daiki Hirose"],
   "documentRequiredPhrases": {
     "privacy-policy": ["RevenueCat", "Unity", "InMobi", "Cloudflare", "海外の利用者の権利", "プライバシー設定", "13歳未満", "ローカル通知"],
-    "terms": ["おひるねパス", "¥300（税込）/週", "¥3,900（税込）/年", "¥600（税込）/月", "¥2,900（税込）/年", "毎週1,000", "かけらパック", "非消耗型", "購入を復元", "24時間前", "第三者受益者", "東京地方裁判所", "消費者保護", "換金"],
-    "tokushoho": ["300円（税込）/週", "3,900円（税込）/年", "600円（税込）/月", "2,900円（税込）/年", "毎週1,000", "300円（税込）", "900円（税込）", "1,800円（税込）", "消耗型", "非消耗型", "480円（税込）", "遅滞なく電子メールにて開示"],
+    "terms": ["おひるねパス", "¥300（税込）/週", "¥3,900（税込）/年", "¥600（税込）/月", "¥2,900（税込）/年", "毎週1,000", "かけらパック", "非消耗型", "購入を復元", "24時間前", "第三者受益者", "東京地方裁判所", "消費者保護", "換金", "バージョン1.2以降の購入画面では、週額プラン"],
+    "tokushoho": ["300円（税込）/週", "3,900円（税込）/年", "600円（税込）/月", "2,900円（税込）/年", "毎週1,000", "300円（税込）", "900円（税込）", "1,800円（税込）", "消耗型", "非消耗型", "480円（税込）", "遅滞なく電子メールにて開示", "バージョン1.2以降の購入画面で販売するプラン"],
     "en/privacy-policy": ["RevenueCat", "Unity", "InMobi", "Cloudflare", "Privacy settings", "under 13", "local notification"],
     "en/terms": ["Nap Pass", "¥300 per week", "¥3,900 per year", "¥600 per month", "¥2,900 per year", "1,000 Shards every week", "Shard Pouches", "non-consumable", "Restore Purchases", "24 hours", "third-party beneficiaries", "Tokyo District Court", "consumer-protection"]
   },
@@ -31,7 +31,10 @@
     "Suika",
     "無料トライアルあり",
     "週プラン",
-    "買い切りプラン"
+    "買い切りプラン",
+    "公開日に差し替え",
+    "Replace on publication",
+    "[1.2 の公開日]"
   ],
   "forbiddenPhraseGroups": ["cross-app"]
 }
