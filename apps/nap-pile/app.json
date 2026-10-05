@@ -2,13 +2,13 @@
   "slug": "nap-pile",
   "displayName": "すやぽん",
   "supportEmail": "dhirose.business@gmail.com",
-  "effectiveDate": "公開日に差し替え",
+  "effectiveDate": "2026年10月6日",
   "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/nap-pile/",
   "documents": ["privacy-policy", "terms", "tokushoho", "en/privacy-policy", "en/terms"],
   "localized": {
     "en": {
       "displayName": "Nap Pile",
-      "effectiveDate": "Replace on publication"
+      "effectiveDate": "October 6, 2026"
     }
   },
   "requiredPhrases": ["dhirose.business@gmail.com", "Daiki Hirose"],
