@@ -1,0 +1,24 @@
+{
+  "slug": "note-toeic",
+  "displayName": "TOEIC攻略ラボ（note）",
+  "supportEmail": "dhirose.business@gmail.com",
+  "effectiveDate": "2026年10月15日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/note-toeic/",
+  "documents": ["tokushoho"],
+  "requiredPhrases": ["dhirose.business@gmail.com", "Daiki Hirose"],
+  "documentRequiredPhrases": {
+    "tokushoho": ["遅滞なく電子メールにて開示", "https://note.com/toeic_app", "24時間以内", "会員登録をせずに購入", "TOEIC is a registered trademark of ETS"]
+  },
+  "forbiddenPhrases": [
+    "TBD",
+    "TODO",
+    "準備中",
+    "{{",
+    "個人開発",
+    "App Store",
+    "Apple",
+    "サブスクリプション",
+    "アプリ内課金"
+  ],
+  "forbiddenPhraseGroups": ["cross-app"]
+}
