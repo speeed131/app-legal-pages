@@ -149,12 +149,18 @@ for (const file of htmlFiles) {
   }
 }
 
-const appDirectories = (
-  await readdir(path.join(root, "apps"), { withFileTypes: true })
-).filter((entry) => entry.isDirectory());
+// apps/ はアプリ、tools/ はアプリ以外の道具（トップのアプリ一覧には載せない）。
+// どちらも同じ形の app.json で検査する。
+const appDirectories = [];
+for (const base of ["apps", "tools"]) {
+  const entries = await readdir(path.join(root, base), { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isDirectory()) appDirectories.push({ base, name: entry.name });
+  }
+}
 
 for (const appDirectory of appDirectories) {
-  const appRoot = path.join(root, "apps", appDirectory.name);
+  const appRoot = path.join(root, appDirectory.base, appDirectory.name);
   const manifestPath = path.join(appRoot, "app.json");
   const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 

@@ -1,0 +1,24 @@
+{
+  "slug": "mac-archive",
+  "displayName": "Mac Archive",
+  "supportEmail": "dhirose.business@gmail.com",
+  "effectiveDate": "2026年10月16日",
+  "baseUrl": "https://speeed131.github.io/app-legal-pages/tools/mac-archive/",
+  "documents": ["privacy-policy"],
+  "requiredPhrases": ["dhirose.business@gmail.com"],
+  "documentRequiredPhrases": {
+    "privacy-policy": ["drive.file", "Limited Use", "https://developers.google.com/terms/api-services-user-data-policy", "第三者"]
+  },
+  "forbiddenPhrases": [
+    "TBD",
+    "TODO",
+    "準備中",
+    "{{",
+    "個人開発",
+    "App Store",
+    "アプリ内課金",
+    "サブスクリプション",
+    "広告"
+  ],
+  "forbiddenPhraseGroups": ["cross-app"]
+}

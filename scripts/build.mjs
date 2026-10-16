@@ -12,7 +12,11 @@ const entries = [
   "index.html",
   "robots.txt",
   "sitemap.xml",
+  "tools",
 ];
+// apps/ はアプリ、tools/ はアプリ以外の道具（トップのアプリ一覧には載せない）。
+// どちらも各ディレクトリに app.json（検証用の manifest）を持ち、公開物からは外す。
+const manifestBases = ["apps", "tools"];
 
 if (path.basename(output) !== "_site" || path.dirname(output) !== root) {
   throw new Error(`Unsafe output path: ${output}`);
@@ -27,18 +31,20 @@ for (const entry of entries) {
   });
 }
 
-const appDirectories = await readdir(path.join(output, "apps"), {
-  withFileTypes: true,
-});
-
-for (const appDirectory of appDirectories) {
-  if (!appDirectory.isDirectory()) {
-    continue;
-  }
-
-  await rm(path.join(output, "apps", appDirectory.name, "app.json"), {
-    force: true,
+for (const base of manifestBases) {
+  const appDirectories = await readdir(path.join(output, base), {
+    withFileTypes: true,
   });
+
+  for (const appDirectory of appDirectories) {
+    if (!appDirectory.isDirectory()) {
+      continue;
+    }
+
+    await rm(path.join(output, base, appDirectory.name, "app.json"), {
+      force: true,
+    });
+  }
 }
 
 console.log(`Built ${entries.length} entries into ${output}`);

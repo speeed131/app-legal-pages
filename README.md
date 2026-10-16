@@ -19,6 +19,11 @@ apps/
     privacy-policy/index.html
     terms/index.html
     tokushoho/index.html
+tools/
+  <tool-slug>/
+    app.json
+    index.html
+    privacy-policy/index.html
 assets/
   legal.css
 scripts/
@@ -33,6 +38,8 @@ https://speeed131.github.io/app-legal-pages/apps/<app-slug>/privacy-policy/
 https://speeed131.github.io/app-legal-pages/apps/<app-slug>/terms/
 https://speeed131.github.io/app-legal-pages/apps/<app-slug>/tokushoho/
 ```
+
+`tools/` は、アプリではない運営者用の道具（Google の OAuth 同意画面に出すホームページとプライバシーポリシーなど）を置く場所です。`apps/` と同じ形の `app.json` で検証し、トップページのアプリ一覧には載せません。URL は `https://speeed131.github.io/app-legal-pages/tools/<tool-slug>/` です。
 
 ## 更新手順
 
