@@ -1,6 +1,6 @@
 {
   "slug": "karimen-drill",
-  "displayName": "仮免 効果測定 学科試験問題集｜運転免許・教習所",
+  "displayName": "仮免 効果測定 学科試験 問題集｜運転免許・教習所",
   "supportEmail": "toeic.grammar.app@gmail.com",
   "effectiveDate": "2026年8月26日",
   "baseUrl": "https://speeed131.github.io/app-legal-pages/apps/karimen-drill/",
@@ -10,7 +10,16 @@
     "toeic.grammar.app@gmail.com"
   ],
   "documentRequiredPhrases": {
-    "privacy-policy": ["RevenueCat", "海外の利用者の権利", "クラウド同期"],
+    "privacy-policy": [
+      "RevenueCat",
+      "海外の利用者の権利",
+      "クラウド同期",
+      "iTunes Search API",
+      "関連アプリの識別番号と国（日本）の値だけ",
+      "端末に保存しません",
+      "応答の控えを一時的に持つ場合があります",
+      "最終更新日: 2026年10月27日"
+    ],
     "terms": [
       "無料トライアル",
       "ファミリー共有",
